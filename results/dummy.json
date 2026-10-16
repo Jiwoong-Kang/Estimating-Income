@@ -1,0 +1,45 @@
+{
+  "model": "dummy",
+  "cv": {
+    "accuracy": {
+      "mean": 0.7591904454179904,
+      "std": 4.662759153779561e-05
+    },
+    "balanced_accuracy": {
+      "mean": 0.5,
+      "std": 0.0
+    },
+    "f1": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "roc_auc": {
+      "mean": 0.5,
+      "std": 0.0
+    },
+    "average_precision": {
+      "mean": 0.24080955458200964,
+      "std": 4.662759153777341e-05
+    }
+  },
+  "test": {
+    "accuracy": 0.7637737239727289,
+    "balanced_accuracy": 0.5,
+    "f1": 0.0,
+    "roc_auc": 0.5,
+    "average_precision": 0.23622627602727106
+  },
+  "confusion_matrix": [
+    [
+      12435,
+      0
+    ],
+    [
+      3846,
+      0
+    ]
+  ],
+  "extra": {
+    "strategy": "most_frequent"
+  }
+}
