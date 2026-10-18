@@ -5,7 +5,8 @@ EDA 7.4절 결정: 여러 지표 + Dummy 기준선 + StratifiedKFold
 """
 
 from pathlib import Path
-
+import numpy as np
+from sklearn.base import BaseEstimator, ClassifierMixin
 import json
 from sklearn.metrics import (
     accuracy_score,
@@ -85,6 +86,27 @@ def evaluate_on_test(pipe, X_train, y_train, X_test, y_test):
         "metrics": metrics,
         "confusion_matrix": cm.tolist(),  
     }
+
+#------------------------------------------------------------
+# 회귀 -> 분류용 래퍼 (임계값)
+#------------------------------------------------------------
+
+class ThresholdingRegressor(BaseEstimator, ClassifierMixin):
+    def __init__(self, regressor, threshold=0.5):
+        self.regressor = regressor
+        self.threshold = threshold
+
+    def fit(self, X, y):
+        self.regressor.fit(X, y)
+        self.classes_ = np.array([0, 1])
+        return self
+    
+    def decision_function(self, X):
+        return np.asarray(self.regressor.predict(X)).ravel()
+    
+    def predict(self, X):
+        scores = self.decision_function(X)
+        return (scores >= self.threshold).astype(int)
 
 #------------------------------------------------------------
 # 결과 저장 / 불러오기
