@@ -15,7 +15,9 @@ The goal is not only to train models, but to **understand the data**, build a **
    - Linear / polynomial regression (with a threshold for classification)
    - Perceptron
    - Support vector machines (linear)
-   - k-nearest neighbors, decision trees, and Naive Bayes (planned / in progress)
+   - k-nearest neighbors
+   - decision trees
+   - Naive Bayes 
 5. **Saved results** (`results/*.json`) for later comparison in a report.
 
 Common code lives under `src/` (`data.py`, `preprocess.py`, `evaluate.py`). Experiments live under `notebooks/`. Learning notes are in `learn/` (indexed by `what I learn.md`).
