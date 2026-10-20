@@ -38,13 +38,14 @@ def split_features_target(df):
 # 손질 2-3단계 빈칸 채우기, one-hot encoding
 #------------------------------------------------------------
 
-def _categorical_steps(min_frequency=RARE_MIN_FREQUENCY):
+def _categorical_steps(min_frequency=RARE_MIN_FREQUENCY, dense=False):
     return Pipeline([
         ("impute", SimpleImputer(strategy="constant", fill_value="Missing")),
 
         ("onehot", OneHotEncoder(
             min_frequency=min_frequency, 
-            handle_unknown="infrequent_if_exist"
+            handle_unknown="infrequent_if_exist",
+            sparse_output=not dense,
             )),
     ])
 
@@ -73,12 +74,12 @@ def _capital_steps(scale=True, log_capital=True):
 # 묶기: 열 묶음마다 알맞은 손질 도구를 배정한다
 #------------------------------------------------------------
 
-def build_preprocessor(scale=True, log_capital=True, min_frequency=RARE_MIN_FREQUENCY):
+def build_preprocessor(scale=True, log_capital=True, dense=False,min_frequency=RARE_MIN_FREQUENCY):
 
     return ColumnTransformer([
         ("numeric", _plain_numeric_steps(scale), PLAIN_NUMERIC_COLS),
         ("capital", _capital_steps(scale, log_capital), CAPITAL_COLS),
-        ("categorical", _categorical_steps(min_frequency), CATEGORICAL_COLS),
+        ("categorical", _categorical_steps(min_frequency, dense), CATEGORICAL_COLS),
     ])
 
 #------------------------------------------------------------

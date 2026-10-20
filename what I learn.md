@@ -11,4 +11,4 @@
 | [2026-10-16](learn/2026-10-16.md) | 평가 모듈 + Dummy 기준선 | StratifiedKFold, 여러 지표, 혼동 행렬, results json, Dummy(most_frequent) 바닥선 |
 | [2026-10-17](learn/2026-10-17.md) | 선형·다항 회귀 | 임계값 래퍼, 안쪽 Pipeline(다항→선형), deg=2 결과, import/커널 |
 | [2026-10-19](learn/2026-10-19.md) | Perceptron | decision_function, random_state, Dummy보다 낫지만 불안정·회귀보다 약함 |
-| [2026-10-20](learn/2026-10-20.md) | SVM (linear) | 커널 vs 슬랙, LinearSVC, Perceptron보다 안정 |
+| [2026-10-20](learn/2026-10-20.md) | SVM ~ Naive Bayes | LinearSVC, k-NN, Tree, NB(dense, 정확도가 Dummy보다 낮아도 정상) |
