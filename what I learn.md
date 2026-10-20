@@ -10,3 +10,4 @@
 | [2026-10-14](learn/2026-10-14.md) | 전처리 모듈 (`src/preprocess.py`) | 원-핫 인코딩, 로그 변환과 크기 맞추기, Pipeline과 ColumnTransformer, fit/transform과 데이터 누수 |
 | [2026-10-16](learn/2026-10-16.md) | 평가 모듈 + Dummy 기준선 | StratifiedKFold, 여러 지표, 혼동 행렬, results json, Dummy(most_frequent) 바닥선 |
 | [2026-10-17](learn/2026-10-17.md) | 선형·다항 회귀 | 임계값 래퍼, 안쪽 Pipeline(다항→선형), deg=2 결과, import/커널 |
+| [2026-10-19](learn/2026-10-19.md) | Perceptron | decision_function, random_state, Dummy보다 낫지만 불안정·회귀보다 약함 |
