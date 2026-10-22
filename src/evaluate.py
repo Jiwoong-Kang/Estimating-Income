@@ -73,7 +73,7 @@ def evaluate_on_test(pipe, X_train, y_train, X_test, y_test):
     pipe.fit(X_train, y_train)
     y_pred = pipe.predict(X_test)
     y_score = _positive_scores(pipe, X_test)
-    metrics = {
+    matrices = {
         "accuracy": float(accuracy_score(y_test, y_pred)),
         "balanced_accuracy": float(balanced_accuracy_score(y_test, y_pred)),
         "f1": float(f1_score(y_test, y_pred)),
@@ -83,7 +83,7 @@ def evaluate_on_test(pipe, X_train, y_train, X_test, y_test):
    
     cm = confusion_matrix(y_test, y_pred)
     return {
-        "metrics": metrics,
+        "matrices": matrices,
         "confusion_matrix": cm.tolist(),  
     }
 
@@ -118,7 +118,7 @@ def save_results(model_name, cv_summary, test_result, extra=None):
     payload = {
         "model": model_name,
         "cv": cv_summary,                 
-        "test": test_result["metrics"],
+        "test": test_result["matrices"],
         "confusion_matrix": test_result["confusion_matrix"],
     }
     if extra is not None:
