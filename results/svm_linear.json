@@ -40,8 +40,46 @@
     ]
   ],
   "extra": {
-    "kernal": "linear",
+    "kernel": "linear",
+    "C": 1,
     "dual": false,
-    "max_iter": 5000
+    "max_iter": 5000,
+    "candidates": [
+      0.01,
+      0.1,
+      1,
+      10
+    ],
+    "selection_metric": "f1",
+    "cv_by_C": {
+      "0.01": {
+        "accuracy": 0.8451521168587037,
+        "balanced_accuracy": 0.7545942282127351,
+        "f1": 0.6432751256063378,
+        "roc_auc": 0.8997035299026864,
+        "average_precision": 0.7410254072912994
+      },
+      "0.1": {
+        "accuracy": 0.8456128095349653,
+        "balanced_accuracy": 0.756552202713865,
+        "f1": 0.6458445993880947,
+        "roc_auc": 0.8997443189251939,
+        "average_precision": 0.7410974439140912
+      },
+      "1": {
+        "accuracy": 0.8457049329803821,
+        "balanced_accuracy": 0.7571788970326476,
+        "f1": 0.6466315716884529,
+        "roc_auc": 0.8996957782679729,
+        "average_precision": 0.7409700883586566
+      },
+      "10": {
+        "accuracy": 0.8456435032033834,
+        "balanced_accuracy": 0.7571384033109799,
+        "f1": 0.6465392969204438,
+        "roc_auc": 0.8996634790418415,
+        "average_precision": 0.7409468866350892
+      }
+    }
   }
 }
