@@ -13,3 +13,4 @@
 | [2026-10-19](learn/2026-10-19.md) | Perceptron | decision_function, random_state, Dummy보다 낫지만 불안정·회귀보다 약함 |
 | [2026-10-20](learn/2026-10-20.md) | SVM ~ Naive Bayes | LinearSVC, k-NN, Tree, NB(dense, 정확도가 Dummy보다 낮아도 정상) |
 | [2026-10-21](learn/2026-10-21.md) | Logistic Regression | 확률 모델, SVM·선형 회귀와 비슷한 실력, 비교용 추가 |
+| [2026-10-23](learn/2026-10-23.md) | 하이퍼파라미터 튜닝 (Polynomial) | CV로 degree 고르기, deg=3 비용 때문에 deg=2 고정 |

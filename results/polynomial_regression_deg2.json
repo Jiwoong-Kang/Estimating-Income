@@ -41,6 +41,20 @@
   ],
   "extra": {
     "degree": 2,
-    "threshold": 0.5
+    "threshold": 0.5,
+    "candidates": [
+      2,
+      3
+    ],
+    "selection_metric": "f1",
+    "cv_by_degree": {
+      "2": {
+        "accuracy": 0.8515708895948416,
+        "balanced_accuracy": 0.7646126530119742,
+        "f1": 0.6594257636942522,
+        "roc_auc": 0.8998880241956094,
+        "average_precision": 0.7487751633947599
+      }
+    }
   }
 }
