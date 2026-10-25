@@ -14,3 +14,4 @@
 | [2026-10-20](learn/2026-10-20.md) | SVM ~ Naive Bayes | LinearSVC, k-NN, Tree, NB(dense, 정확도가 Dummy보다 낮아도 정상) |
 | [2026-10-21](learn/2026-10-21.md) | Logistic Regression | 확률 모델, SVM·선형 회귀와 비슷한 실력, 비교용 추가 |
 | [2026-10-23](learn/2026-10-23.md) | 하이퍼파라미터 튜닝 (Poly~kNN) | deg=2, Perceptron `alpha`, SVM `C=1`, kNN `k=35` |
+| [2026-10-24](learn/2026-10-24.md) | Tree / NB / Logistic 튜닝 | Tree depth=15, NB smoothing=0.1, Logistic `C=10`(민감도 낮음) |
