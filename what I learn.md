@@ -16,3 +16,4 @@
 | [2026-10-23](learn/2026-10-23.md) | 하이퍼파라미터 튜닝 (Poly~kNN) | deg=2, Perceptron `alpha`, SVM `C=1`, kNN `k=35` |
 | [2026-10-24](learn/2026-10-24.md) | Tree / NB / Logistic 튜닝 | Tree depth=15, NB smoothing=0.1, Logistic `C=10`(민감도 낮음) |
 | [2026-10-26](learn/2026-10-26.md) | K-Means 클러스터링 | Elbow+Silhouette, k=2, 클러스터별 고소득 비율(20.6% vs 62%) |
+| [2026-10-28](learn/2026-10-28.md) | Bias–Variance | train vs CV로 간접 설명, Tree/kNN/Poly, |
