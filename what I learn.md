@@ -18,3 +18,4 @@
 | [2026-10-26](learn/2026-10-26.md) | K-Means 클러스터링 | Elbow+Silhouette, k=2, 클러스터별 고소득 비율(20.6% vs 62%) |
 | [2026-10-28](learn/2026-10-28.md) | Bias–Variance | train vs CV로 간접 설명, Tree/kNN/Poly, sklearn 키 이름, F1 |
 | [2026-11-02](learn/2026-11-02.md) | Bagging & Random Forest | 앙상블>단일 트리, Bagging vs RF, depth15 기준 비교 |
+| [2026-11-04](learn/2026-11-04.md) | Boosting (Ada + GB) |
