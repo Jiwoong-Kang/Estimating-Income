@@ -14,8 +14,9 @@ The goal is not only to train models, but to **understand the data**, build a **
 3. **Shared evaluation** (`src/evaluate.py`): stratified 5-fold CV, multiple metrics, Dummy baseline, test-set confusion matrix.
 4. **Supervised models** in dedicated notebooks, with selective hyperparameter tuning where it matters.
 5. **Ensembles**: bagging, random forest, AdaBoost, gradient boosting.
-6. **Extra analyses**: k-means clustering, bias–variance curves (train vs CV).
-7. **Saved results** in `results/*.json` for the final comparison / report.
+6. **Neural net**: multilayer perceptron (MLP) for tabular data (`scale=True`, `dense=True`).
+7. **Extra analyses**: k-means clustering, bias–variance curves (train vs CV).
+8. **Saved results** in `results/*.json` for the final comparison / report.
 
 ## Notebooks
 
@@ -35,6 +36,7 @@ The goal is not only to train models, but to **understand the data**, build a **
 | `12_bias_variance.ipynb` | Bias–variance via train vs CV F1 |
 | `13_bagging.ipynb` | Bagging vs Random Forest |
 | `14_boosting.ipynb` | AdaBoost vs Gradient Boosting |
+| `15_mlp.ipynb` | Multilayer Perceptron (`MLPClassifier`) |
 
 ## Setup
 
@@ -59,7 +61,7 @@ Files under `data/adult/` (`adult.data`, `adult.test`, `adult.names`).
 2. Open a notebook under `notebooks/` and run top to bottom.
 3. Notebooks use `sys.path.append("..")` to import `src/`.
 
-Suggested order: `01_eda` → `02_dummy` → model notebooks → `13` / `14` ensembles → comparison.
+Suggested order: `01_eda` → `02_dummy` → model notebooks → `13` / `14` ensembles → `15_mlp` → comparison.
 
 ## Evaluation
 
@@ -78,6 +80,7 @@ Scores use `predict_proba` when available, otherwise `decision_function`.
 
 - **Base models** (e.g. tree depth, k-NN `k`, SVM `C`): candidates + CV where useful; choices stored in JSON `extra`.
 - **Ensembles**: often fix `n_estimators=100` (and GB `learning_rate=0.1`) to compare *methods* fairly.
+- **MLP**: fixed architecture `(64, 32)`, ReLU, adam; `max_iter=300` chosen over 500 after a Test check (more iterations ≠ better).
 - **Clustering**: choose `k` with Elbow / Silhouette (not a classification grid).
 - **Bias–variance**: vary complexity on purpose; the curve matters more than a single “best” setting.
 
@@ -103,6 +106,6 @@ Estimating-Income/
 - Turning EDA into preprocessing and metric decisions
 - Why imbalanced data needs more than accuracy
 - Pipelines / ColumnTransformers and avoiding leakage
-- How linear models, trees, ensembles, and Naive Bayes behave on the same task
+- How linear models, trees, ensembles, Naive Bayes, and MLP behave on the same task
 - Illustrating bias–variance with train vs CV curves (not a full numeric decomposition)
 - Writing “what works / what doesn’t” with evidence for a course report
