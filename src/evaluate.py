@@ -8,6 +8,8 @@ from sklearn.metrics import (
     balanced_accuracy_score,
     confusion_matrix,
     f1_score,
+    precision_score,
+    recall_score,
     roc_auc_score
 )
 from sklearn.model_selection import StratifiedKFold, cross_validate
@@ -15,6 +17,8 @@ from sklearn.model_selection import StratifiedKFold, cross_validate
 CV_SCORING = [
     "accuracy",
     "balanced_accuracy",
+    "precision",
+    "recall",
     "f1",
     "roc_auc",
     "average_precision",
@@ -70,6 +74,8 @@ def evaluate_on_test(pipe, X_train, y_train, X_test, y_test):
     metrics = {
         "accuracy": float(accuracy_score(y_test, y_pred)),
         "balanced_accuracy": float(balanced_accuracy_score(y_test, y_pred)),
+        "precision": float(precision_score(y_test, y_pred, zero_division=0)),
+        "recall": float(recall_score(y_test, y_pred)),
         "f1": float(f1_score(y_test, y_pred)),
         "roc_auc": float(roc_auc_score(y_test, y_score)),
         "average_precision": float(average_precision_score(y_test, y_score)),
