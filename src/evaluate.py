@@ -1,9 +1,3 @@
-"""
-평가 모듈
-모든 모델 노트북이 같은 방식으로 점수를 매기도록 한다.
-EDA 7.4절 결정: 여러 지표 + Dummy 기준선 + StratifiedKFold
-"""
-
 from pathlib import Path
 import numpy as np
 from sklearn.base import BaseEstimator, ClassifierMixin
@@ -31,7 +25,7 @@ RANDOM_STATE = 42
 RESULTS_DIR = Path(__file__).resolve().parent.parent / "results"
 
 #------------------------------------------------------------
-# 교차 검증으로 점수 재기
+# Cross-validation scores
 #------------------------------------------------------------
 
 def cross_val_scores(pipe, X, y, n_splits=N_SPLITS, random_state=RANDOM_STATE):
@@ -59,7 +53,7 @@ def cross_val_scores(pipe, X, y, n_splits=N_SPLITS, random_state=RANDOM_STATE):
     return summary
 
 #------------------------------------------------------------
-# 시험 데이터 최종 채점 + 혼동 행렬
+# Test-set metrics + confusion matrix
 #------------------------------------------------------------
 
 def _positive_scores(pipe, X):
@@ -88,7 +82,7 @@ def evaluate_on_test(pipe, X_train, y_train, X_test, y_test):
     }
 
 #------------------------------------------------------------
-# 회귀 -> 분류용 래퍼 (임계값)
+# Regressor → classifier wrapper (threshold)
 #------------------------------------------------------------
 
 class ThresholdingRegressor(BaseEstimator, ClassifierMixin):
@@ -109,7 +103,7 @@ class ThresholdingRegressor(BaseEstimator, ClassifierMixin):
         return (scores >= self.threshold).astype(int)
 
 #------------------------------------------------------------
-# 결과 저장 / 불러오기
+# Save / load results
 #------------------------------------------------------------
 
 def save_results(model_name, cv_summary, test_result, extra=None):

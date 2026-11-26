@@ -1,8 +1,3 @@
-"""
-전처리 모듈
-EDA(notebooks/01_eda.ipynb) 7.3절의 전처리 결정을 코드로 옮긴 것이다.
-모든 모델이 같은 전처리를 거치도록, 모델 노트북에서는 이 파일의 함수만 사용한다.
-"""
 import numpy as np
 from sklearn.impute import SimpleImputer
 from sklearn.pipeline import Pipeline
@@ -25,7 +20,7 @@ CATEGORICAL_COLS = [
 
 RARE_MIN_FREQUENCY = 50
 #------------------------------------------------------------
-# 손질 1단계: 입력 항목(X)과 정답(y) 나누기
+# Split features (X) and target (y)
 #------------------------------------------------------------
 
 def split_features_target(df):
@@ -35,7 +30,7 @@ def split_features_target(df):
     return X, y
 
 #------------------------------------------------------------
-# 손질 2-3단계 빈칸 채우기, one-hot encoding
+# Categoricals: fill missing + one-hot encode
 #------------------------------------------------------------
 
 def _categorical_steps(min_frequency=RARE_MIN_FREQUENCY, dense=False):
@@ -50,7 +45,8 @@ def _categorical_steps(min_frequency=RARE_MIN_FREQUENCY, dense=False):
     ])
 
 #------------------------------------------------------------
-# 손질 4단계: 숫자 항목 다음기(로그 변환, 크기 맞추기)
+# Numerics: optional log (capital) + scaling
+#------------------------------------------------------------
 
 def _plain_numeric_steps(scale=True):
     if scale:
@@ -71,7 +67,7 @@ def _capital_steps(scale=True, log_capital=True):
     return Pipeline(steps)
 
 #------------------------------------------------------------
-# 묶기: 열 묶음마다 알맞은 손질 도구를 배정한다
+# Assign the right steps to each column group
 #------------------------------------------------------------
 
 def build_preprocessor(scale=True, log_capital=True, dense=False,min_frequency=RARE_MIN_FREQUENCY):
@@ -83,7 +79,7 @@ def build_preprocessor(scale=True, log_capital=True, dense=False,min_frequency=R
     ])
 
 #------------------------------------------------------------
-# 최종 조립: 전처리 + 모델을 하나의 파이프라인으로 잇는다
+# Preprocess + model in one pipeline
 #------------------------------------------------------------
 
 def make_model_pipeline(model, **preprocess_options):

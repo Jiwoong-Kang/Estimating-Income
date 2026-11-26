@@ -20,3 +20,4 @@ Details are split by date under the `learn/` folder.
 | [2026-11-02](learn/2026-11-02.md) | Bagging & Random Forest | Ensemble > single tree, Bagging vs RF, compare at depth 15 |
 | [2026-11-04](learn/2026-11-04.md) | Boosting (Ada + GB) | stump vs depth 3, n/lr fixed, GB best overall |
 | [2026-11-18](learn/2026-11-18.md) | MLP | ReLU·adam·dense/scale, max_iter 300>500 (Test), below ensembles |
+| [2026-11-25](learn/2026-11-25.md) | All-model score table | Test + CV metrics for every `results/*.json`, metric definitions |
